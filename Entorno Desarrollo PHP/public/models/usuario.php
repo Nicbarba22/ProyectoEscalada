@@ -1,6 +1,6 @@
 <?php
 
-include_once ('ddbb/conexion.php');
+include_once('ddbb/conexion.php');
 
 /**
  * Clase de acceso a datos para la tabla usuarios. Implementa todos los métodos que necesiten atacar
@@ -24,27 +24,15 @@ class UserDAO
             $CONTRA, contraseña del usuario
         Retorna: array asociativo con los detalles del usuario si la autenticación es exitosa, null en caso contrario
     */
-  public function iniciarSesion($NOMBRE, $CONTRA)
-{
-    $stmt = $this->db_con->prepare("SELECT * FROM usuario WHERE nombre = :nombre AND password = :password");
-    $stmt->bindParam(':nombre', $NOMBRE);
-    $stmt->bindParam(':password', $CONTRA);
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $stmt->execute();
-    $result = $stmt->fetch();
-
-    if ($result) {
-    if (!isset($_SESSION['usuario'])) {
-        $_SESSION['usuario'] = [];
+    public function iniciarSesion($NOMBRE, $CONTRA)
+    {
+        $stmt = $this->db_con->prepare("SELECT * FROM usuario WHERE nombre = :nombre AND password = :password");
+        $stmt->bindParam(':nombre', $NOMBRE);
+        $stmt->bindParam(':password', $CONTRA);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result;
     }
-
-    // Verifica que 'rol' exista en el resultado
-    $_SESSION['usuario'] = [
-        'nombre' => $result['nombre'],
-        'rol' => isset($result['rol']) ? $result['rol'] : 'default' // Asigna un valor por defecto si no existe 'rol'
-    ];
 }
-
-    return $result;
-}
-}
+?>

@@ -15,6 +15,7 @@
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body>
@@ -42,11 +43,8 @@
               <span class="navbar-text text-light me-2">
                 Bienvenido, <?php echo htmlspecialchars($_SESSION['usuario']['nombre']); ?>
               </span>
-              <!-- <a href="index.php?controller=userController&action=cerrarSesion" class="btn btn-secondary me-2">
-                Cerrar Sesión
-              </a> -->
               <?php if (isset($_SESSION['usuario']['rol']) && $_SESSION['usuario']['rol'] == 'admin'): ?>
-                <a href="index.php?controller=eventosController&action=aniadirEvento" class="btn btn-secondary me-2">
+                <a href="index.php?controller=eventsController&action=aniadirEvento" class="btn btn-secondary me-2">
                   Registrar Evento
                 </a>
               <?php endif; ?>

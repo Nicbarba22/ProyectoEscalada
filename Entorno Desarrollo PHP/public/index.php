@@ -30,63 +30,6 @@ if (isset($_REQUEST['action']) && isset($_REQUEST['controller'])) {
 
 // Página de entrada: estilo "ESCALADOR"
 echo '
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: "Montserrat", sans-serif;
-        }
-        .hero {
-            background-image: url("assets/img/fondo.png"); /* Reemplaza con la ruta real */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            position: relative;
-            color: white;
-        }
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.4);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 {
-            font-size: 6rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-        .btn-conoceme {
-            background-color: black;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            border: none;
-            letter-spacing: 1px;
-        }
-        .btn-conoceme:hover {
-            background-color: #222;
-        }
-        .navbar-nav .nav-link {
-            font-weight: bold;
-            color: black !important;
-        }
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-}
-
-}
-
-    </style>
 </head>
 <body>
 

@@ -3,21 +3,6 @@
     mostrar errores de validación, en caso de existir.
 -->
 <div class="container mb-5 mt-5">
-    <style>
-        .container {
-            color: black;
-        }
-        .formulario {
-            width: 50%;
-            align-items: center;
-        }
-        .caja {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-    </style>
     <h1 class="text-center">Iniciar Sesión</h1>
     <div class= "caja">
     <form class="formulario" action="index.php?controller=usuarioController&action=iniciarSesion" method="POST">

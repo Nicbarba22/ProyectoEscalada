@@ -53,6 +53,44 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
   integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
 </script>
+
+<script>
+    function detalleEvento(nombre, descripcion, precio, imagen, fecha) {
+      document.getElementById('modalEventName').innerText = nombre;
+      document.getElementById('modalEventDescription').innerText = descripcion;
+      document.getElementById('modalEventPrice').innerText = precio;
+      document.getElementById('modalEventImage').src = 'assets/img/' + imagen;
+      document.getElementById('modalEventDate').innerText = fecha  + ' €';
+    }
+</script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" style="color: #24209d;" id="exampleModalLabel">Detalles del Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card mb-2">
+          <div class="d-flex justify-content-center">
+            <img id="modalEventImage" src="" class="card-img-top rounded" style="width: 80%; height: auto;" alt="Evento" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" id="modalEventName"></h5>
+            <p class="card-text" id="modalEventDescription"></p>
+            <p class="card-text"><strong>Fecha: </strong><span id="modalEventPrice"></span></p>
+            <p class="card-text"><strong>Precio: </strong><span id="modalEventDate"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 </html>

@@ -1,0 +1,76 @@
+.container {
+    color: black;
+}
+.formulario {
+    width: 50%;
+    align-items: center;
+}
+.caja {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prueba {
+    margin-top: 2%;
+    padding: 10px;
+    border-radius: 2%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+.hero {
+    background-image: url("img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: white;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.hero h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.btn-conoceme {
+    background-color: black;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 1px;
+}
+.btn-conoceme:hover {
+    background-color: #222;
+}
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: black !important;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.form-label,
+h2,
+h5 {
+    color: black;
+}

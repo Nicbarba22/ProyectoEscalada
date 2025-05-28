@@ -21,9 +21,17 @@ class usuarioController {
                     session_start();
                 }
                 $_SESSION['usuario'] = $user;
-                
+
+                // Redirigir según el rol (opcional)
+                if (isset($user['rol']) && $user['rol'] == 'admin') {
+                    header("Location: index.php?controller=eventsController&action=MostrarEventos");
+                    exit();
+                } else {
+                    header("Location: index.php?controller=eventsController&action=MostrarEventos");
+                    exit();
+                }
             } else {
-                // Mostrar mensaje de error con SweetAlert
+                // Mostrar mensaje de error
                 $error = "Nombre o contraseña incorrectos";
                 View::show("login", ['error' => $error]);
             }

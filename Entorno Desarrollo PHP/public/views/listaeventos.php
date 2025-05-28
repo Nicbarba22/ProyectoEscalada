@@ -18,11 +18,12 @@ foreach ($data as $evento) {
     echo "<div class='col-md-8 p-3'>";
     echo "<div class='card-body'>";
     /** Linea para el nombre */
-    echo "<h5 class='card-title'>" . htmlspecialchars($evento['nombre']) . "</h5>";
+    echo "<h2 class='card-title'>" . htmlspecialchars($evento['nombre']) . "</h2><br>";
     /** Linea para la fecha */
     echo "<p class='card-text mb-1'><strong>Fecha:</strong> " . htmlspecialchars($evento['fecha']) . "</p>";
-    /** Linea para la ubicacion */
-    echo "<p class='card-text mb-1'><strong>Ubicación:</strong> " . htmlspecialchars($evento['ubicacion']) . "</p>";
+    echo '<div class="d-grid">';
+    echo '<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="detalleEvento(\'' . htmlspecialchars($evento['nombre']) . '\', \'' . htmlspecialchars($evento['descripcion']) . '\', \'' . htmlspecialchars($evento['fecha']) . '\', \'' . htmlspecialchars($evento['imagen']) . '\', \'' . number_format($evento['precio'], 2) . '\')">Ver evento</button>';
+    echo "</div>";
     echo "</div>";
     echo "</div>";
     echo "</div>";
