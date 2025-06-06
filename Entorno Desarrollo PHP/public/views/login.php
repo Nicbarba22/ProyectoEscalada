@@ -33,6 +33,11 @@
                     . $data["CONTRA"] .
                     "</div>";
             ?>
+         <div class="mb-3">
+                 <label for="EMAIL" class="form-label">Correo electrónico (opcional)</label>
+                <input type="email" class="form-control" id="EMAIL" name="EMAIL">
+        </div>
+
         </div>
         <input class="form-control btn btn-primary" type="submit" name="iniciar" value="Iniciar">
     </form>

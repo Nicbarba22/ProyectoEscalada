@@ -56,6 +56,12 @@
             <a href="index.php?controller=eventsController&action=MostrarEventos" class="btn btn-secondary me-2">Mostrar Eventos</a>
 
           </div>
+
+           </div>
+         <!-- <div class="d-flex">
+            <a href="index.php?controller=eventsController&action=registrarEnEvento" class="btn btn-secondary me-2">Inscripcion</a>
+          </div>
+            -->
           <?php if (isset($_SESSION['usuario'])): ?>
             <a href="index.php?controller=usuarioController&action=cerrarSesion" class="btn btn-danger me-2">Cerrar Sesión</a>
           <?php endif; ?>

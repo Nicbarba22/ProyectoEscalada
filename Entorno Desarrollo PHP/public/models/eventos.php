@@ -12,15 +12,21 @@ class EventosDAO {
         $this->db_con = Database::open_connection();
     }
 
-    /**
-     * Consulta para mostrar todo lo que hay en la tabla eventos de la base de datos
+     /**
+     * Devuelve todos los eventos ordenados por fecha descendente.
+     * Se usa para mostrar el listado de eventos al usuario.
      */
+
     public function MostrarEventos() {
         $stmt = $this->db_con->prepare("SELECT * FROM evento ORDER BY fecha DESC");
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->execute();
         return $stmt->fetchAll();
     }
+      /**
+     * Inserta un nuevo evento en la base de datos con los datos recibidos del formulario.
+     * Devuelve true si fue exitoso, false si hubo error.
+     */
 
     public function insertEvento($nombre, $descripcion, $precio, $imagen, $fecha) {
         $stmt = $this->db_con->prepare("INSERT INTO evento (nombre, descripcion, precio, imagen, fecha) VALUES (:nombre, :descripcion, :precio, :imagen, :fecha)");
@@ -31,13 +37,22 @@ class EventosDAO {
         $stmt->bindParam(':fecha', $fecha);
 
         try {
-            return $stmt->execute();
+            return $stmt->execute(); // Devuelve true si se insertó correctamente
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            echo $e->getMessage(); // Muestra error por pantalla 
             return false;
         }
     }
 
+       /**
+     * Elimina un evento de la base de datos por su ID.
+     * Primero borra todas las inscripciones asociadas a ese evento.
+     */
+    public function eliminarEvento($id) {
+    $this->db_con->prepare("DELETE FROM inscripciones WHERE evento_id = ?")->execute([$id]); // Borra inscripciones vinculadas
 
+    $stmt = $this->db_con->prepare("DELETE FROM evento WHERE id = ?"); // Borra el evento en sí
+    return $stmt->execute([$id]);
+}
 }
 ?>

@@ -1,0 +1,12 @@
+############################################
+
+PENDIENTE DE HACER
+
+Implementar que si entro como usuario pueda registrarme en un evento, si el usuario no existe en la BD, llevarlo a la inscripcion, 
+si existe entra en un pequeño formulario donde pone 3 cosas para entrar en ee evento ej (metodo de pago,hora,edad), tendrá que aparecer ese 
+usuario en la bd. 
+
+
+############################################
+
+  

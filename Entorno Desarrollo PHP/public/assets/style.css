@@ -74,3 +74,12 @@ h2,
 h5 {
     color: black;
 }
+
+.card-img-fixed {
+    height: 140px;
+    object-fit: cover;
+}
+
+.destacados-title {
+    color: white;
+}

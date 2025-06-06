@@ -1,8 +1,7 @@
 <?php
-
+ob_start();
 session_start();
 
-include_once("views/header.php");
 include_once("controllers/eventosController.php");
 include_once("controllers/usuarioController.php");
 
@@ -15,37 +14,70 @@ if (isset($_REQUEST['action']) && isset($_REQUEST['controller'])) {
     $act = $_REQUEST['action'];
     $cont = $_REQUEST['controller'];
 
+include_once("views/header.php");
+
     // Instanciación del controlador e invocación del método
     $controller = new $cont();
     $controller->$act();
 
 } else {
-    // // Página de entrada: mostrar eventos
-    // echo '<div class="d-flex justify-content-center mt-4">';
-    // echo '<h1 class="text-dark ">Vive la experiencia Roca Viva</h1>';
-    // echo '</div>';
-    // echo '<div class="d-flex justify-content-center mt-5 mb-5">';
-    // echo '<a href="index.php?controller=eventsController&action=MostrarEventos" class="btn btn-secondary me-2">Mostrar Eventos</a>';
-    // echo '</div>';
+ 
+    include_once("views/header.php");
 
-// Página de entrada: estilo "ESCALADOR"
-echo '
+echo <<<HTML
 </head>
 <body>
 
-
-<!-- Sección Hero -->
-<div class="hero d-flex align-items-center justify-content-center text-center">
+<!-- Sección Hero con tarjetas más pequeñas y texto blanco -->
+<div class="hero d-flex flex-column align-items-center justify-content-center text-center">
     <div class="overlay"></div>
     <div class="hero-content">
         <h1>ESCALADA</h1>
         <a href="index.php?controller=eventsController&action=MostrarEventos" class="btn btn-conoceme mt-4">
             EVENTOS ↓
         </a>
+
+        <!-- Eventos destacados -->
+        <div class="container mt-5">
+            <h2 class="mb-4" style="color: white;">¡Nuestros eventos mejor valorados!</h2>
+            <div class="row justify-content-center">
+
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card shadow border-0">
+                       <img src="assets/img/evento1.png" class="card-img-top" alt="Evento 1" style="height: 140px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">ClimbFest Granada</h5>
+                            <a href="index.php?controller=eventsController&action=MostrarEventos#climbfest" class="btn btn-primary mt-2">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card shadow border-0">
+                        <img src="assets/img/evento2.png" class="card-img-top" alt="Evento 2" style="height: 140px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Master Escalada Barcelona</h5>
+                            <a href="index.php?controller=eventsController&action=MostrarEventos#barcelona" class="btn btn-primary mt-2">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card shadow border-0">
+                        <img src="assets/img/evento3.png" class="card-img-top" alt="Evento 3" style="height: 140px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ruta Vertical Madrid</h5>
+                            <a href="index.php?controller=eventsController&action=MostrarEventos#madrid" class="btn btn-primary mt-2">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+HTML;
 
-';
 
 }
 
